@@ -1,5 +1,8 @@
 package org.launchcode.techjobs_oo;
 
+//import org.w3c.dom.ls.LSOutput;
+
+
 public class Main {
 
 //    public static void main(String[] args) {
@@ -15,5 +18,13 @@ public class Main {
 //            System.out.println(job);
 //        }
 //    }
+//public static void main(String[] args) {
+//    Job job1 = new Job();
+//    Job job2 = new Job();
+//    System.out.println(job1.getId());
+//    System.out.println(job2.getId());
+//    System.out.println(job2.getId() - job1.getId());
+//}
+
 
 }
