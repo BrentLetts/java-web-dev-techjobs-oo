@@ -49,7 +49,7 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
-
+    //region GETTERS AND SETTERS
     public int getId() {
         return id;
     }
@@ -92,5 +92,27 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+    //endregion
+
+    @Override
+    public String toString(){
+        String returnString = "";
+        if(this.getName() == null
+        || this.employer == null || this.coreCompetency == null
+        || this.location == null || this.positionType == null){
+            return "OOPS! This job does not seem to exist";
+        }else{
+            returnString = String.format("ID: %s\nName: %s\nEmployer: %s\nLocation: %s\nPosition Type: %s\nCore Competency: %s",
+                    this.getId(), returnString(this.name), returnString(this.employer.toString()), returnString(this.location.toString()), returnString(this.positionType.toString()), returnString(this.coreCompetency.toString()));
+        }
+        return returnString;
+    }
+
+    public String returnString(String s){
+        if(s == ""){
+            return "Data not available";
+        }else
+            return s;
     }
 }

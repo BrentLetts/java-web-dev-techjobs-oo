@@ -2,6 +2,8 @@ package Test;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static java.util.Objects.isNull;
 import static org.junit.Assert.*;
 
 import org.launchcode.techjobs_oo.*;
@@ -40,8 +42,37 @@ public class JobTest {
     @Test
     public void testJobsForEquality(){
         Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Job job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertFalse(job3.equals(job4));
+        assertFalse(job3.equals(fullJob));
     }
 
+    @Test
+    public void testForIdOnlyToString(){
+        assertEquals("OOPS! This job does not seem to exist", job1.toString());
+
+    }
+
+    @Test
+    public void testForEmptyEmployerField(){
+        Job fullJob = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals("ID: "+
+                fullJob.getId() +
+                "\nName: Product tester" +
+                "\nEmployer: Data not available" +
+                "\nLocation: Desert" +
+                "\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence",
+                fullJob.toString());
+    }
+
+    @Test
+    public void testForFullFields(){
+        assertEquals("ID: "+
+                fullJob.getId() +
+                "\nName: Product tester" +
+                "\nEmployer: ACME" +
+                "\nLocation: Desert" +
+                "\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence",
+                fullJob.toString());
+    }
 }
